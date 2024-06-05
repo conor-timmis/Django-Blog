@@ -29,7 +29,8 @@ def post_detail(request, slug):
     return render(
         request,
         "blog/post_detail.html",
-        {"post": post},
+        {"post": post,
+        "coder": "Conor Timmis"},
     )
 
 def event_detail(request, event_id):
