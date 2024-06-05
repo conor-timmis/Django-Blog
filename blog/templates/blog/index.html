@@ -23,6 +23,13 @@
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
 
+                            <!-- Add the event list here -->
+                            {% for event in event_list %}
+                            <a href="{% url 'event_detail' event.event_id %}">
+                                <h2>{{ event.event_name }}</h2>
+                            </a>
+                            {% endfor %}
+
                             <hr />
                             <p class="card-text text-muted h6">{{ post.created_on}}
                             </p>
@@ -44,13 +51,13 @@
             {% if page_obj.has_previous %}
             <li>
                 <a href="?page={{ page_obj.previous_page_number }}"
-                  class="page-link">&laquo; PREV</a>
+                  class="page-link">« PREV</a>
             </li>
             {% endif %}
             {% if page_obj.has_next %}
             <li>
                 <a href="?page={{ page_obj.next_page_number }}"
-                  class="page-link">NEXT &raquo;</a>
+                  class="page-link">NEXT »</a>
             </li>
             {% endif %}
         </ul>
@@ -61,4 +68,5 @@
 <!-- index.html content ends here -->
 {% block copyright %}
     Copyright 2023 Conor Timmis
+{% endblock %}
 {% endblock %}
